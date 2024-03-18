@@ -163,3 +163,63 @@ C:\Users\BS982.BS-982.000>
 
 Builds JS APP & creates Docker Image:
 ![image](https://github.com/RakibulIslamRakib/Docker-class-1/assets/56424436/c434c753-973d-4932-a9f7-f9d132adddba)
+
+
+![image](https://github.com/RakibulIslamRakib/Docker-class-1/assets/56424436/f7cfe366-2a08-4fab-83c8-5294058213fb)
+
+Docker Network:
+![image](https://github.com/RakibulIslamRakib/Docker-class-1/assets/56424436/96c0197c-acb1-49e5-b894-69d90beecdc2)
+![image](https://github.com/RakibulIslamRakib/Docker-class-1/assets/56424436/dc61194c-2847-4ee8-a2cc-ccb7401990f8)
+
+
+demo node mongo project:
+clone the repo, remove all docker files.
+D:\container\techworld-js-docker-demo-app>**docker pull mongo**
+          Using default tag: latest
+          latest: Pulling from library/mongo
+          bccd10f490ab: Pull complete
+          93f07c832c0f: Pull complete
+          dab2da22865c: Pull complete
+          1f7ceac81d5b: Pull complete
+          3e507bb35e33: Pull complete
+          bf53d03cb40e: Pull complete
+          cc32baa6c25a: Pull complete
+          15cbd2791748: Pull complete
+          Digest: sha256:019bf5423a08363f253d81a3f16cc6527e7342a7f5420a5ad74663cc2c62d0e7
+          Status: Downloaded newer image for mongo:latest
+          docker.io/library/mongo:latest
+          
+          What's Next?
+            View a summary of image vulnerabilities and recommendations → docker scout quickview mongo
+            
+
+D:\container\techworld-js-docker-demo-app>**docker pull mongo-express**
+          Using default tag: latest
+          latest: Pulling from library/mongo-express
+          619be1103602: Already exists
+          46bbeb28556e: Pull complete
+          c579a9bd1700: Pull complete
+          745a187ebdee: Pull complete
+          f5f3c466a5e1: Pull complete
+          91d198b3ae6a: Pull complete
+          5ba939722952: Pull complete
+          fc31ad8151e1: Pull complete
+          Digest: sha256:66dfa6a39deffce1935669807d205eca3edd7a8459c701ffe75d7e3e81df10ab
+          Status: Downloaded newer image for mongo-express:latest
+          docker.io/library/mongo-express:latest
+          
+          What's Next?
+            View a summary of image vulnerabilities and recommendations → docker scout quickview mongo-express
+
+running mongo with proper conf and user info 
+ D:\container\techworld-js-docker-demo-app>docker run -p27017:27017 -d -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=password --name mongodb --net mongo-network mongo
+f7728daf4d1a0e170db007fa21e45ca9a93d7122a3b3873332563aef17e52c43       
+
+docker logs f7728daf4d1a0e170db007fa21e45ca9a93d7122a3b3873332563aef17e52c43
+
+
+running mongo-express  with proper conf and user info 
+D:\container\techworld-js-docker-demo-app>docker run -p 8081:8081 -d -e ME_CONFIG_BASICAUTH_USERNAME=admin -e ME_CONFIG_BASICAUTH_PASSWORD=password --name mongo-express  -e ME_CONFIG_MONGODB_SERVER=mongodb --n
+et mongo-network mongo-express
+5400c360cb6c2b14b9ff34c5742c920be5d49085ea897908ef179afba5d6dc69
+
