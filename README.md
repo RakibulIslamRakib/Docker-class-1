@@ -112,4 +112,54 @@ deploying docker in windows( bellow 10 or older mac version not posible) , using
 
 
 
-              
+
+
+**docker pull redis**
+**docker run redis** :-> run redis   container 
+**docker run -d redis** :-> run redis   container in detach mode, it will be running in background and wi will be able to use the cmd 
+
+**docker ps -a** : display all container
+
+// binding port
+docker run -d -p6000:6379 redis  : 6000 ->my laptop port, web browser ie localhost:6000 and 6379 bis the docker container port for redis
+
+![image](https://github.com/RakibulIslamRakib/Docker-class-1/assets/56424436/ac492ed0-41b2-4f79-87c6-9aeda28014ea)
+
+now we cannot bind port 6000 with any other port.
+![image](https://github.com/RakibulIslamRakib/Docker-class-1/assets/56424436/6d181f6e-6fa7-45c0-8573-97faa9bec9e9)
+
+
+**docker logs goofy_cartwright**:  see containers logs,  running containers have some random name that is human readable, so that we can use that instead of id ie: goofy_cartwright
+
+lets check logs files or conf file or env in image:
+
+C:\Users\BS982.BS-982.000>docker exec -it 571bcf4dbeda /bin/bash   (it->interective terminal, 571bcf4dbeda: container id)
+root@571bcf4dbeda:/data# ls
+root@571bcf4dbeda:/data# pwd
+/data
+root@571bcf4dbeda:/data# cd /
+root@571bcf4dbeda:/# ls
+bin   data  etc   lib    media  opt   root  sbin  sys  usr
+boot  dev   home  lib64  mnt    proc  run   srv   tmp  var
+root@571bcf4dbeda:/# env
+HOSTNAME=571bcf4dbeda
+REDIS_DOWNLOAD_SHA=8d104c26a154b29fd67d6568b4f375212212ad41e0c2caa3d66480e78dbd3b59
+PWD=/
+HOME=/root
+REDIS_VERSION=7.2.4
+GOSU_VERSION=1.17
+TERM=xterm
+REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-7.2.4.tar.gz
+SHLVL=1
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+_=/usr/bin/env
+OLDPWD=/data
+root@571bcf4dbeda:/# exit
+exit
+
+C:\Users\BS982.BS-982.000>
+
+**docker run vs docker start:** run command use for create a container with an image with specific version and start is used to restart an existing container
+
+Builds JS APP & creates Docker Image:
+![image](https://github.com/RakibulIslamRakib/Docker-class-1/assets/56424436/c434c753-973d-4932-a9f7-f9d132adddba)
